@@ -30,6 +30,7 @@ namespace Program
             var scrapper = new JVCScrapper();
 
             scrapper.GetGrades();
+            scrapper.DisplayGrades();
         }
     }
 }
