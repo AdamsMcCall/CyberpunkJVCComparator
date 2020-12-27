@@ -27,10 +27,7 @@ namespace Program
 
         private void btn_request_Click(object sender, RoutedEventArgs e)
         {
-            var scrapper = new JVCScrapper();
 
-            scrapper.GetGrades();
-            scrapper.DisplayGrades();
         }
     }
 }
