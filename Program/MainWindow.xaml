@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Program"
         mc:Ignorable="d"
-        Title="MainWindow" Height="148" Width="243">
-    <Grid>
-        <Button x:Name="btn_request" Content="Get les infos" HorizontalAlignment="Left" Margin="46,33,0,0" VerticalAlignment="Top" Height="50" Width="147"
-                Click="btn_request_Click"/>
+        Title="MainWindow" Height="276" Width="486">
+    <Window.Resources>
+        <FontFamily x:Key="test">/Fonts/#Roboto Condensed</FontFamily>
+    </Window.Resources>
+    
+    <Label Content="Cyberpunk 2077" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="296" FontSize="36" FontWeight="Bold" FontFamily="{StaticResource test}"/>
 
-    </Grid>
 </Window>

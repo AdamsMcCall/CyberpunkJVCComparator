@@ -24,10 +24,5 @@ namespace Program
         {
             InitializeComponent();
         }
-
-        private void btn_request_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

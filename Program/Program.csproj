@@ -1,9 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fonts\RobotoCondensed-Bold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fonts\RobotoCondensed-Bold.ttf" />
+  </ItemGroup>
 
 </Project>
