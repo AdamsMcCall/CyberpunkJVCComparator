@@ -5,11 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Program"
         mc:Ignorable="d"
-        Title="MainWindow" Height="276" Width="486">
+        Title="MainWindow" Height="276" Width="564" FontWeight="Bold"
+        Loaded="Window_Loaded">
     <Window.Resources>
-        <FontFamily x:Key="test">/Fonts/#Roboto Condensed</FontFamily>
+        <FontFamily x:Key="roboto">/Fonts/#Roboto Condensed</FontFamily>
+        <FontFamily x:Key="roboto bold">/Fonts/#Roboto Condensed Bold</FontFamily>
     </Window.Resources>
-    
-    <Label Content="Cyberpunk 2077" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="296" FontSize="36" FontWeight="Bold" FontFamily="{StaticResource test}"/>
+    <Grid>
+        <Label x:Name="LBL_error"
+           Margin="0,10,0,0"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Center"
+           Width="544"
+           FontSize="14"
+           FontFamily="{StaticResource roboto}" FontWeight="Normal" Background="White" Foreground="Red" Height="135">
+            <AccessText x:Name="LBL_error_content" TextWrapping="WrapWithOverflow"></AccessText>
+        </Label>
+        <Label x:Name="LBL_test"
+           Content=""
+           Margin="50,150,0,0"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Width="457"
+           FontSize="36"
+           FontFamily="{StaticResource roboto bold}"/>
+    </Grid>
+
+
 
 </Window>
