@@ -1,0 +1,67 @@
+﻿<Window x:Class="Program.Mockup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Program"
+        mc:Ignorable="d"
+        Title="Mockup" Height="436" Width="974">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="txt_firstGameName" HorizontalAlignment="Center" Text="Cyberpunk 2077" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_firstGameMark" Grid.Column="1" HorizontalAlignment="Center" Text="17/20" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold" Foreground="#FFCC0000"/>
+
+        <TextBlock x:Name="txt_comparison" Grid.Row="1" HorizontalAlignment="Center" Text="a une meilleure note que" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="28"/>
+
+        <TextBlock x:Name="txt_secondGameName" Grid.Row="2" HorizontalAlignment="Center" Text="Black Mesa" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_secondGameMark" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="13/20" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold" Foreground="#FFCC0000"/>
+
+        <Button x:Name="BT_restart" Content="Relancer" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="36" Width="174" Click="BT_restart_Click"/>
+
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Window.Loaded">
+                <BeginStoryboard>
+                    <Storyboard x:Name="SB_gameAnimation">
+                        <DoubleAnimation
+                            Storyboard.TargetName="txt_firstGameName"
+                            Storyboard.TargetProperty="(TextBlock.Opacity)"
+                            From="0.0" To="1.0" Duration="0:0:1"
+                            BeginTime="0:0:1"/>
+                        <DoubleAnimation
+                            Storyboard.TargetName="txt_firstGameMark"
+                            Storyboard.TargetProperty="(TextBlock.Opacity)"
+                            From="0.0" To="1.0" Duration="0:0:1"
+                            BeginTime="0:0:1"/>
+                        <DoubleAnimation
+                            Storyboard.TargetName="txt_comparison"
+                            Storyboard.TargetProperty="(TextBlock.Opacity)"
+                            BeginTime="0:0:3"
+                            From="0.0" To="1.0" Duration="0:0:1"/>
+                        <DoubleAnimation
+                            Storyboard.TargetName="txt_secondGameName"
+                            Storyboard.TargetProperty="(TextBlock.Opacity)"
+                            BeginTime="0:0:5"
+                            From="0.0" To="1.0" Duration="0:0:1"/>
+                        <DoubleAnimation
+                            Storyboard.TargetName="txt_secondGameMark"
+                            Storyboard.TargetProperty="(TextBlock.Opacity)"
+                            BeginTime="0:0:5"
+                            From="0.0" To="1.0" Duration="0:0:1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+
+    </Grid>
+</Window>
