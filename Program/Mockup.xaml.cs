@@ -22,26 +22,25 @@ namespace Program
         {
             InitializeComponent();
             txt_firstGameName.Opacity = 0;
-            txt_firstGameMark.Opacity = 0;
+            sp_firstGameMark.Opacity = 0;
             txt_comparison.Opacity = 0;
             txt_secondGameName.Opacity = 0;
-            txt_secondGameMark.Opacity = 0;
+            sp_secondGameMark.Opacity = 0;
         }
 
         private void BT_restart_Click(object sender, RoutedEventArgs e)
         {
-            //SB_gameAnimation.Remove();
             txt_firstGameName.BeginAnimation(TextBlock.OpacityProperty, null);
-            txt_firstGameMark.BeginAnimation(TextBlock.OpacityProperty, null);
+            sp_firstGameMark.BeginAnimation(TextBlock.OpacityProperty, null);
             txt_comparison.BeginAnimation(TextBlock.OpacityProperty, null);
             txt_secondGameName.BeginAnimation(TextBlock.OpacityProperty, null);
-            txt_secondGameMark.BeginAnimation(TextBlock.OpacityProperty, null);
+            sp_secondGameMark.BeginAnimation(TextBlock.OpacityProperty, null);
 
             txt_firstGameName.Opacity = 0;
-            txt_firstGameMark.Opacity = 0;
+            sp_firstGameMark.Opacity = 0;
             txt_comparison.Opacity = 0;
             txt_secondGameName.Opacity = 0;
-            txt_secondGameMark.Opacity = 0;
+            sp_secondGameMark.Opacity = 0;
             SB_gameAnimation.Begin();
         }
     }

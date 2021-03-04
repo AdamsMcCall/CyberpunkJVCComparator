@@ -19,12 +19,21 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="txt_firstGameName" HorizontalAlignment="Center" Text="Cyberpunk 2077" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold"/>
-        <TextBlock x:Name="txt_firstGameMark" Grid.Column="1" HorizontalAlignment="Center" Text="17/20" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold" Foreground="#FFCC0000"/>
+        
+        <StackPanel x:Name="sp_firstGameMark" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="txt_firstGameMark" HorizontalAlignment="Center" Text="17" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="56" FontWeight="Bold" Foreground="#FFCC0000"/>
+            <Line x:Name="ln_firstGameMarkLine" Stroke="#FFD4D4D4" X1="0" Y1="0" Y2="0" X2="50" HorizontalAlignment="Center" StrokeThickness="2"/>
+            <TextBlock x:Name="txt_firstGameMarkTotal" HorizontalAlignment="Center" Text="20" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="32" FontWeight="Bold" Foreground="#FFD4D4D4"/>
+        </StackPanel>
 
-        <TextBlock x:Name="txt_comparison" Grid.Row="1" HorizontalAlignment="Center" Text="a une meilleure note que" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="28"/>
+        <TextBlock x:Name="txt_comparison" Grid.Row="1" HorizontalAlignment="Center" Text="a une meilleure note que" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="28"/>
 
         <TextBlock x:Name="txt_secondGameName" Grid.Row="2" HorizontalAlignment="Center" Text="Black Mesa" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold"/>
-        <TextBlock x:Name="txt_secondGameMark" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="13/20" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold" Foreground="#FFCC0000"/>
+        <StackPanel x:Name="sp_secondGameMark" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock x:Name="txt_secondGameMark" HorizontalAlignment="Center" Text="13" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="56" FontWeight="Bold" Foreground="#FFCC0000"/>
+            <Line x:Name="ln_secondGameMarkLine" Stroke="#FFD4D4D4" X1="0" Y1="0" Y2="0" X2="50" HorizontalAlignment="Center" StrokeThickness="2"/>
+            <TextBlock x:Name="txt_secondGameMarkTotal" HorizontalAlignment="Center" Text="20" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="32" FontWeight="Bold" Foreground="#FFD4D4D4"/>
+        </StackPanel>
 
         <Button x:Name="BT_restart" Content="Relancer" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="36" Width="174" Click="BT_restart_Click"/>
 
@@ -38,7 +47,7 @@
                             From="0.0" To="1.0" Duration="0:0:1"
                             BeginTime="0:0:1"/>
                         <DoubleAnimation
-                            Storyboard.TargetName="txt_firstGameMark"
+                            Storyboard.TargetName="sp_firstGameMark"
                             Storyboard.TargetProperty="(TextBlock.Opacity)"
                             From="0.0" To="1.0" Duration="0:0:1"
                             BeginTime="0:0:1"/>
@@ -53,7 +62,7 @@
                             BeginTime="0:0:5"
                             From="0.0" To="1.0" Duration="0:0:1"/>
                         <DoubleAnimation
-                            Storyboard.TargetName="txt_secondGameMark"
+                            Storyboard.TargetName="sp_secondGameMark"
                             Storyboard.TargetProperty="(TextBlock.Opacity)"
                             BeginTime="0:0:5"
                             From="0.0" To="1.0" Duration="0:0:1"/>
