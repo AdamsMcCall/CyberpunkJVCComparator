@@ -18,7 +18,17 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="txt_firstGameName" HorizontalAlignment="Center" Text="{Binding FirstGame.Name}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_firstGameName" HorizontalAlignment="Center" Text="{Binding FirstGame.Name}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold" PreviewMouseDown="FirstGameClick">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
 
         <StackPanel x:Name="sp_firstGameMark" Grid.Column="1" VerticalAlignment="Center">
             <TextBlock x:Name="txt_firstGameMark" HorizontalAlignment="Center" Text="{Binding FirstGame.Grade}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="56" FontWeight="Bold" Foreground="#FFCC0000"/>
@@ -28,7 +38,18 @@
 
         <TextBlock x:Name="txt_comparison" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding ComparatorText}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="28"/>
 
-        <TextBlock x:Name="txt_secondGameName" Grid.Row="2" HorizontalAlignment="Center" Text="{Binding SecondGame.Name}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_secondGameName" Grid.Row="2" HorizontalAlignment="Center" Text="{Binding SecondGame.Name}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold" PreviewMouseDown="SecondGameClick">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        
         <StackPanel x:Name="sp_secondGameMark" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
             <TextBlock x:Name="txt_secondGameMark" HorizontalAlignment="Center" Text="{Binding SecondGame.Grade}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="56" FontWeight="Bold" Foreground="#FFCC0000"/>
             <Line x:Name="ln_secondGameMarkLine" Stroke="#FFD4D4D4" X1="0" Y1="0" Y2="0" X2="50" HorizontalAlignment="Center" StrokeThickness="2"/>
@@ -70,7 +91,6 @@
                 </BeginStoryboard>
             </EventTrigger>
         </Grid.Triggers>
-
 
     </Grid>
 </Window>

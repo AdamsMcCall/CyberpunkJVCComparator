@@ -52,12 +52,32 @@ namespace Program
             {
                 Name = "Cyberpunk 2077",
                 Grade = "17",
-                Link = ""
+                Link = "https://www.jeuxvideo.com/jeux/jeu-79026/"
             };
             comparedGames.SecondGame = _gameList[rnd.Next(0, _gameList.Count)];
             UpdateComparatorText();
 
             this.DataContext = comparedGames;
+        }
+
+        private void FirstGameClick(object sender, RoutedEventArgs e)
+        {
+            var processInfo = new ProcessStartInfo(comparedGames.FirstGame.Link)
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(processInfo);
+        }
+
+        private void SecondGameClick(object sender, RoutedEventArgs e)
+        {
+            var processInfo = new ProcessStartInfo(comparedGames.SecondGame.Link)
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(processInfo);
         }
 
         private void BT_restart_Click(object sender, RoutedEventArgs e)
