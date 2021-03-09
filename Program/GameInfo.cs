@@ -30,5 +30,10 @@ namespace Program
             else
                 return false;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

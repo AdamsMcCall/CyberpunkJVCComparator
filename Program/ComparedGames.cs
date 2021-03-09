@@ -16,7 +16,7 @@ namespace Program
                 if (value != FirstGameValue)
                 {
                     FirstGameValue = value;
-                    OnPropertyChanged("SecondGame");
+                    OnPropertyChanged("FirstGame");
                 }
             }
         }
