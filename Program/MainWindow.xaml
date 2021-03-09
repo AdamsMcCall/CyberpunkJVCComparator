@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Program"
         mc:Ignorable="d"
-        Title="Cyberpunk JVC Comparator" Height="400" Width="800">
+        Title="Cyberpunk JVC Comparator" Icon="icon.ico" Height="400" Width="800">
 
     <Window.Resources>
         <local:GameCollection x:Key="GameCollection" />

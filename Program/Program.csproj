@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,7 @@
     <None Remove="fonts\RobotoCondensed-Light.ttf" />
     <None Remove="fonts\RobotoCondensed-LightItalic.ttf" />
     <None Remove="fonts\RobotoCondensed-Regular.ttf" />
+    <None Remove="icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +28,11 @@
     <Resource Include="fonts\RobotoCondensed-Light.ttf" />
     <Resource Include="fonts\RobotoCondensed-LightItalic.ttf" />
     <Resource Include="fonts\RobotoCondensed-Regular.ttf" />
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

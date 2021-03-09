@@ -29,6 +29,7 @@ namespace Program
         public MainWindow()
         {
             InitializeComponent();
+            CenterWindowOnScreen();
             txt_firstGameName.Opacity = 0;
             sp_firstGameMark.Opacity = 0;
             txt_comparison.Opacity = 0;
@@ -150,13 +151,26 @@ namespace Program
 
         private void CB_gameList_DropDownClosed(object sender, EventArgs e)
         {
-            ReinitializeTextOpacity();
+            if (indexBuffer > -1)
+            {
+                ReinitializeTextOpacity();
 
-            comparedGames.FirstGame = _gameList[indexBuffer];
-            indexBuffer = -1;
-            UpdateComparatorText();
+                comparedGames.FirstGame = _gameList[indexBuffer];
+                indexBuffer = -1;
+                UpdateComparatorText();
 
-            SB_gameAnimation.Begin();
+                SB_gameAnimation.Begin();
+            }
+        }
+
+        private void CenterWindowOnScreen()
+        {
+            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
     }
 }
