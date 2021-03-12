@@ -23,6 +23,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+        
         <TextBlock x:Name="txt_firstGameName" HorizontalAlignment="Center" Text="{Binding FirstGame.Name}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Roboto" FontSize="48" FontWeight="Bold" PreviewMouseDown="FirstGameClick">
             <TextBlock.Style>
                 <Style TargetType="TextBlock">
@@ -54,23 +55,45 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        
+
         <StackPanel x:Name="sp_secondGameMark" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
             <TextBlock x:Name="txt_secondGameMark" HorizontalAlignment="Center" Text="{Binding SecondGame.Grade}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="56" FontWeight="Bold" Foreground="#FFCC0000"/>
             <Line x:Name="ln_secondGameMarkLine" Stroke="#FFD4D4D4" X1="0" Y1="0" Y2="0" X2="50" HorizontalAlignment="Center" StrokeThickness="2"/>
             <TextBlock x:Name="txt_secondGameMarkTotal" HorizontalAlignment="Center" Text="20" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" FontSize="32" FontWeight="Bold" Foreground="#FFD4D4D4"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="BT_restart" Content="Relancer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Width="174" Click="BT_restart_Click"/>
-            <ComboBox x:Name="CB_gameList" Margin="64, 0" Width="256" Height="24" ItemsSource="{Binding Source={StaticResource GameCollectionViewSource}}" IsEditable="True" IsTextSearchEnabled="True" TextSearch.TextPath="Name" DropDownClosed="CB_gameList_DropDownClosed">
-                <ComboBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel />
-                    </ItemsPanelTemplate>
-                </ComboBox.ItemsPanel>
-            </ComboBox>
-        </StackPanel>
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="BT_restart" Content="Relancer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Width="174" Click="BT_restart_Click"/>
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Jeu à comparer:" />
+                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="CB_gameList" HorizontalAlignment="Stretch" Height="24" ItemsSource="{Binding Source={StaticResource GameCollectionViewSource}}" IsEditable="True" IsTextSearchEnabled="True" TextSearch.TextPath="Name">
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+                <Label Grid.Row="1" Grid.Column="0" Content="Choix du 2ème jeu:" />
+                <ComboBox Grid.Row="1" Grid.Column="1" x:Name="CB_secondGameChoice" HorizontalAlignment="Stretch" Width="250" Height="24" IsEditable="True" SelectedIndex="0">
+                    <ComboBoxItem Content="Aléatoire"/>
+                    <ComboBoxItem Content="Toujours supérieur"/>
+                    <ComboBoxItem Content="Toujours égal"/>
+                    <ComboBoxItem Content="Toujours inférieur"/>
+                </ComboBox>
+            </Grid>
+        </Grid>
 
         <Grid.Triggers>
             <EventTrigger RoutedEvent="Window.Loaded">

@@ -25,7 +25,7 @@ namespace Program
         ComparedGames comparedGames;
         Random rnd;
         GameCollection gameCollection;
-        int indexBuffer = -1;
+        Func<int>[] GetGameId = new Func<int>[4];
         public MainWindow()
         {
             InitializeComponent();
@@ -48,6 +48,11 @@ namespace Program
                 Application.Current.Shutdown();
             }
 
+            GetGameId[0] = GetRandomGameId;
+            GetGameId[1] = GetGreaterGameId;
+            GetGameId[2] = GetEqualGameId;
+            GetGameId[3] = GetLowerGameId;
+
             gameCollection = (GameCollection)Resources["GameCollection"];
             _gameList = _gameList.OrderBy(x => x.Name).ToList();
             rnd = new Random();
@@ -57,8 +62,6 @@ namespace Program
 
             comparedGames.SecondGame = _gameList[rnd.Next(0, _gameList.Count)];
             UpdateComparatorText();
-
-            CB_gameList.SelectionChanged += CB_gameList_SelectionChanged;
 
             this.DataContext = comparedGames;
         }
@@ -87,7 +90,8 @@ namespace Program
         {
             ReinitializeTextOpacity();
 
-            comparedGames.SecondGame = _gameList[rnd.Next(0, _gameList.Count)];
+            comparedGames.FirstGame = _gameList[CB_gameList.SelectedIndex];
+            comparedGames.SecondGame = _gameList[GetGameId[CB_secondGameChoice.SelectedIndex]()];
             UpdateComparatorText();
 
             SB_gameAnimation.Begin();
@@ -144,25 +148,6 @@ namespace Program
             }
         }
 
-        private void CB_gameList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            indexBuffer = CB_gameList.SelectedIndex;
-        }
-
-        private void CB_gameList_DropDownClosed(object sender, EventArgs e)
-        {
-            if (indexBuffer > -1)
-            {
-                ReinitializeTextOpacity();
-
-                comparedGames.FirstGame = _gameList[indexBuffer];
-                indexBuffer = -1;
-                UpdateComparatorText();
-
-                SB_gameAnimation.Begin();
-            }
-        }
-
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -171,6 +156,46 @@ namespace Program
             double windowHeight = this.Height;
             this.Left = (screenWidth / 2) - (windowWidth / 2);
             this.Top = (screenHeight / 2) - (windowHeight / 2);
+        }
+
+        private int GetRandomGameId()
+        {
+            return rnd.Next(0, _gameList.Count);
+        }
+
+        private int GetGreaterGameId()
+        {
+            int id = rnd.Next(0, _gameList.Count);
+
+            if (Convert.ToInt32(comparedGames.FirstGame.Grade) == 20)
+                while (Convert.ToInt32(_gameList[id].Grade) < Convert.ToInt32(comparedGames.FirstGame.Grade))
+                    id = rnd.Next(0, _gameList.Count);
+            else
+                while (Convert.ToInt32(_gameList[id].Grade) <= Convert.ToInt32(comparedGames.FirstGame.Grade))
+                    id = rnd.Next(0, _gameList.Count);
+            return id;
+        }
+        
+        private int GetEqualGameId()
+        {
+            int id = rnd.Next(0, _gameList.Count);
+
+            while (Convert.ToInt32(_gameList[id].Grade) != Convert.ToInt32(comparedGames.FirstGame.Grade))
+                id = rnd.Next(0, _gameList.Count);
+            return id;
+        }
+
+        private int GetLowerGameId()
+        {
+            int id = rnd.Next(0, _gameList.Count);
+
+            if (Convert.ToInt32(comparedGames.FirstGame.Grade) == 0)
+                while (Convert.ToInt32(_gameList[id].Grade) >= Convert.ToInt32(comparedGames.FirstGame.Grade))
+                id = rnd.Next(0, _gameList.Count);
+            else
+                while (Convert.ToInt32(_gameList[id].Grade) > Convert.ToInt32(comparedGames.FirstGame.Grade))
+                    id = rnd.Next(0, _gameList.Count);
+            return id;
         }
     }
 }
