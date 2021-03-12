@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fonts\RobotoCondensed-Bold.ttf" />
+    <None Remove="fonts\RobotoCondensed-BoldItalic.ttf" />
+    <None Remove="fonts\RobotoCondensed-Italic.ttf" />
+    <None Remove="fonts\RobotoCondensed-Light.ttf" />
+    <None Remove="fonts\RobotoCondensed-LightItalic.ttf" />
+    <None Remove="fonts\RobotoCondensed-Regular.ttf" />
+    <None Remove="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fonts\RobotoCondensed-Bold.ttf" />
+    <Resource Include="fonts\RobotoCondensed-BoldItalic.ttf" />
+    <Resource Include="fonts\RobotoCondensed-Italic.ttf" />
+    <Resource Include="fonts\RobotoCondensed-Light.ttf" />
+    <Resource Include="fonts\RobotoCondensed-LightItalic.ttf" />
+    <Resource Include="fonts\RobotoCondensed-Regular.ttf" />
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

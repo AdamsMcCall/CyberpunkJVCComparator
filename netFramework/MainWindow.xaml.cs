@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,13 +13,13 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Linq;
 
-namespace netCore
+namespace netFramework
 {
     /// <summary>
-    /// Logique d'interaction pour Mockup.xaml
+    /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -175,7 +177,7 @@ namespace netCore
                     id = rnd.Next(0, _gameList.Count);
             return id;
         }
-        
+
         private int GetEqualGameId()
         {
             int id = rnd.Next(0, _gameList.Count);
@@ -191,7 +193,7 @@ namespace netCore
 
             if (Convert.ToInt32(comparedGames.FirstGame.Grade) == 0)
                 while (Convert.ToInt32(_gameList[id].Grade) > Convert.ToInt32(comparedGames.FirstGame.Grade))
-                id = rnd.Next(0, _gameList.Count);
+                    id = rnd.Next(0, _gameList.Count);
             else
                 while (Convert.ToInt32(_gameList[id].Grade) >= Convert.ToInt32(comparedGames.FirstGame.Grade))
                     id = rnd.Next(0, _gameList.Count);
